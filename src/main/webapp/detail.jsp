@@ -65,8 +65,9 @@ display:flex;
      <option value="" disabled selected>북마크 그룹 이름 선택</option>
  <%while (rs.next()) {
      String BookmarkName = rs.getString("BookmarkName");
+     String rowid = rs.getString("rowid");
      %> 
-	<option value=<%=BookmarkName%>><%=BookmarkName%></option>
+	<option value="<%=BookmarkName%>"><%=BookmarkName%></option>
 <%} %>
 </select>
  <input type="hidden" name="id" value="<%=row%>" name=/>
