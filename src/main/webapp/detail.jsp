@@ -7,6 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>와이파이 정보 구하기</title>
+<script>
+function check(){
+    if(document.getElementById("name").value==""){
+        alert("북마크를 추가해주세요.");
+        return;
+    }
+
+    frm.submit(); //직접 submit()이라는 메소드를 호출. 액션을 들고 가줌
+}
+</script>
 <style>
 table {
 	display:flex;
@@ -50,8 +60,8 @@ display:flex;
 <H1>와이파이 정보 구하기</H1><br>
 <p><a href = "index.jsp" title = "Home"> 홈 </a> | <a href = "history.jsp" title="Location History List"> 위치 히스토리 목록 </a>| <a href = "load-wifi.jsp" title="Bring Open API Data"> Open API 와이파이 정보 가져오기 </a>
 | <a href = "bookmark-list.jsp" title="Bookmark List"> 북마크 보기 </a>| <a href = "bookmark-group.jsp" title="Bookmark Group"> 북마크 그룹 관리 </a></p>
- <form action="detail-do.jsp" method="get">
- <select name="BookmarkName">
+ <form action="detail-do.jsp" method="get" name="frm">
+ <select name="BookmarkName" id="name">
      <option value="" disabled selected>북마크 그룹 이름 선택</option>
  <%while (rs.next()) {
      String BookmarkName = rs.getString("BookmarkName");
@@ -60,7 +70,7 @@ display:flex;
 <%} %>
 </select>
  <input type="hidden" name="id" value="<%=row%>" name=/>
-<input type="submit" value="북마크 추가하기">
+<input type="button" value="북마크 추가하기" onclick="check()">
 </form>
 <table>
   <tr>
